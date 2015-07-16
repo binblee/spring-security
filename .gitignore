@@ -36,6 +36,9 @@ hs_err_pid*
 ＃Others
 .DS_Store
 .idea
+*.iml
+*.ipr
+*.iws
 *.swp
 logs
 
