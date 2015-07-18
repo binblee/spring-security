@@ -10,8 +10,21 @@ angular.module('hello', ['ngRoute'])
 
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 }).controller('home', function($scope, $http){
-        $http.get('/resource').success(function(data){
-            $scope.greeting = data;
+        $http.get('token').success(function(token){
+            // TODO A more elegant solution might be to grab the token as needed,
+            //  and use an Angular interceptor to add the header to every request
+            //  to the resource server. The interceptor definition could then be
+            //  abstracted instead of doing it all in one place and cluttering up
+            //  the business logic.
+            $http({
+                url: 'http://localhost:9000',
+                method: 'GET',
+                headers: {
+                    'X-Auth-Token' : token.token
+                }
+            }).success(function(data){
+                $scope.greeting = data;
+            });
         })
     })
     .controller('navigation', function($rootScope, $scope, $http, $location){
