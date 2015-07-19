@@ -16,13 +16,7 @@ angular.module('hello', ['ngRoute'])
             //  to the resource server. The interceptor definition could then be
             //  abstracted instead of doing it all in one place and cluttering up
             //  the business logic.
-            $http({
-                url: 'http://localhost:9000',
-                method: 'GET',
-                headers: {
-                    'X-Auth-Token' : token.token
-                }
-            }).success(function(data){
+            $http.get('resource/').success(function(data){
                 $scope.greeting = data;
             });
         })
