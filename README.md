@@ -5,3 +5,8 @@ Code from
 
 Using gradle instead of maven
 
+
+Code from [securing a web application](http://spring.io/guides/gs/securing-web/)
+
+classicweb
+
