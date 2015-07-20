@@ -6,6 +6,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * Created by libin on 15/7/20.
@@ -13,6 +15,10 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 @Configuration
 @EnableWebMvcSecurity
 public class WebSecurityCnfig extends WebSecurityConfigurerAdapter{
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -28,7 +34,6 @@ public class WebSecurityCnfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
-        auth.inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+        auth.userDetailsService(userDetailsService);
     }
 }
