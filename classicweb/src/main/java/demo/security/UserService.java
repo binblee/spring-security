@@ -1,4 +1,6 @@
-package demo;
+package demo.security;
+
+import demo.domain.User;
 
 import java.util.Collection;
 

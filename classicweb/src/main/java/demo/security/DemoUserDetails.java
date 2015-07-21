@@ -1,5 +1,7 @@
-package demo;
+package demo.security;
 
+import demo.domain.Role;
+import demo.domain.User;
 import org.springframework.security.core.authority.AuthorityUtils;
 
 /**

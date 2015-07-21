@@ -1,4 +1,4 @@
-package demo;
+package demo.domain;
 
 /**
  * Created by libin on 15/7/20.

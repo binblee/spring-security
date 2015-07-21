@@ -1,5 +1,7 @@
-package demo;
+package demo.security;
 
+import demo.domain.Role;
+import demo.domain.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserById(long id) {
         if(id==1){
-            return new User(id,"a","a@email.com",new BCryptPasswordEncoder().encode("apass"),Role.ADMIN);
+            return new User(id,"a","a@email.com",new BCryptPasswordEncoder().encode("apass"), Role.ADMIN);
         }else if(id==2){
             return new User(id,"b","b@email.com",new BCryptPasswordEncoder().encode("bpass"),Role.ADMIN);
         }
