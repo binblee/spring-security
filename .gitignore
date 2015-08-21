@@ -41,4 +41,7 @@ hs_err_pid*
 *.iws
 *.swp
 logs
-
+*.pid
+.classpath
+.project
+.settings
